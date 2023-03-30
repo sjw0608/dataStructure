@@ -3,25 +3,21 @@ const Compare = {
     BIGGER_THAN: 1,
     EQUALS: 0
 };
-
 function defaultEquals(a, b) {
     return a === b;
 }
-
 function defaultCompare(a, b) {
     if (a === b) {
         return Compare.EQUALS;
     }
     return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 }
-
 class Node {
     constructor(element, next) {
         this.element = element; // 加入链表元素的值
         this.next = next; // 指向链表中下一个元素的指针
     }
 }
-
 
 class DoublyNode extends Node {
     constructor(element, next, prev) {
@@ -139,16 +135,15 @@ class LinkedList {
         return str;
     }
 }
-
-// const list = new LinkedList();
-// list.push(15);
-// list.push(10);
-// list.push(23);
-// list.push(33);
-// list.push(43);
+const list = new LinkedList();
+list.push(15);
+list.push(10);
+list.push(23);
+list.push(33);
+list.push(43);
 // list.insert(55, 2)
-// console.log(list.toString());
-
+list.removeAt(2)
+console.log(list.toString());
 /**
  * 双向链表
  */
@@ -241,7 +236,6 @@ class DoublyLinkedList extends LinkedList {
         this.tail = null;
     }
 }
-
 /**
  * 循环链表
  * 循环链表可以像链表一样只有单向引用，也可以像双向链表一样有双向引用。
@@ -309,13 +303,11 @@ class CircularLinkedList extends LinkedList {
         return current.element;
     }
 }
-
 /**
  * 有序链表
  * 有序链表是指保持元素有序的链表结构。
  * 除了使用排序算法之外，我们还可以将元素插入到正确的位置来保证链表的有序性。
  */
-
 class SortedLinkedList extends LinkedList {
     constructor(equalsFn = defaultEquals, compareFn = defaultCompare) {
         super(equalsFn);
@@ -348,7 +340,6 @@ class SortedLinkedList extends LinkedList {
         return i;
     }
 }
-
 /**
  * 用双向链表创建栈数据结构
  */
