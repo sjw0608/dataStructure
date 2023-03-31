@@ -33,7 +33,7 @@ class Node {
 class BinarySearchTree {
     constructor(compareFn = defaultCompare) {
         this.compareFn = compareFn;
-        this.root = null; // 跟节点
+        this.root = null; // 根节点
     }
     insert(key) {
         if (this.root == null) {

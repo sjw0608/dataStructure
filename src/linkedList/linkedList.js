@@ -371,3 +371,32 @@ class StackLinkedList {
         return this.items.toString()
     }
 }
+
+
+class LinkedNode {
+    constructor(val = 0, next = null) {
+        this.val = val;
+        this.next = next;
+    }
+}
+/**
+ * 合并链表
+ * 两个链表均按照升序排序
+ * @returns 
+ */
+function mergeLinked(a, b) {
+    let head = new LinkedNode(0);
+    let tail = head, aPtr = a, bPtr = b;
+    while (aPtr != null && bPtr !== null) {
+        if (aPtr.val < bPtr.val) {
+            tail.next = aPtr;
+            aPtr = aPtr.next;
+        } else {
+            tail.next = bPtr;
+            bPtr = bPtr.next;
+        }
+        tail = tail.next;
+    }
+    tail.next = (aPtr != null ? aPtr : bPtr);
+    return head.next;
+}
